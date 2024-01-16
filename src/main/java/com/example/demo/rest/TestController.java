@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class TestController {
 
-//    very important comment
+//    very important comment ...
 
     @GetMapping("/")
     public ResponseEntity<String> endpoint() {
