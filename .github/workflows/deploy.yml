@@ -33,6 +33,22 @@ jobs:
       - name: Tests №2
         run: mvn test
 
+  linter:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Lint Code Base
+        uses: github/super-linter@v4
+        env:
+          VALIDATE_ALL_CODEBASE: true
+          VALIDATE_JAVA: true
+          GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
+
   build-image:
     needs: tests
     runs-on: ubuntu-latest
