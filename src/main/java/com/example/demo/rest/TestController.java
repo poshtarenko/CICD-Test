@@ -11,7 +11,7 @@ public class TestController {
 
     @GetMapping("/")
     public ResponseEntity<String> endpoint() {
-        return ResponseEntity.ok("Mock data\n");
+        return ResponseEntity.ok("Mock data 2\n");
     }
 
 }
