@@ -95,7 +95,7 @@ jobs:
           username: ${{ secrets.EC2_USERNAME }}
           key: ${{ secrets.EC2_PRIVATE_KEY }}
           script: |
-            docker stop demo-service || true
-            docker rm demo-service || true
-            docker pull ${{ secrets.DOCKERHUB_USERNAME }}/demo-service
-            docker run -d --name demo-service -p 80:8080 ${{ secrets.DOCKERHUB_USERNAME }}/demo-service
+            sudo docker stop demo-service || true
+            sudo docker rm demo-service || true
+            sudo docker pull ${{ secrets.DOCKERHUB_USERNAME }}/demo-service
+            sudo docker run -d --name demo-service -p 80:8080 ${{ secrets.DOCKERHUB_USERNAME }}/demo-service
