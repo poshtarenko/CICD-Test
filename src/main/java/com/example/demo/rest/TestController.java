@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class TestController {
 
+//    very important comment
+
     @GetMapping("/")
     public ResponseEntity<String> endpoint() {
         return ResponseEntity.ok("Mock data\n");
