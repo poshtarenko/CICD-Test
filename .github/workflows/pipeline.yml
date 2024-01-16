@@ -1,12 +1,11 @@
 name: CI/CD Pipeline
 
 on:
-  push:
-    branches:
-      - master
   pull_request:
-    branches:
-      - master
+    types:
+      - opened
+      - synchronize
+      - closed
 
 jobs:
   tests:
@@ -77,6 +76,7 @@ jobs:
   deploy:
     needs: build-image
     runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == true
 
     steps:
       - name: Checkout repository
